@@ -8,8 +8,8 @@ matplotlib>=3.7.0
 # Machine learning utilities
 scikit-learn>=1.2.0
 
-# Numerical computing (dependency, but good to specify)
-numpy>=1.24.0
+# Numerical computing - wersja < 2.0 dla kompatybilności z PyTorch
+numpy>=1.24.0,<2.0.0
 
 # Jupyter notebook support
 jupyter>=1.0.0
