@@ -1,6 +1,6 @@
-# Few-Shot Learning & Meta-Learning Tutorial
+# Few-Shot Learning
 
-Interaktywny notebook edukacyjny wprowadzający do technik Few-Shot Learning i Meta-Learning.
+Interaktywny notebook edukacyjny wprowadzający do technik Few-Shot Learning.
 
 ## 📋 Opis projektu
 
