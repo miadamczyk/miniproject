@@ -16,10 +16,10 @@ Ten projekt zawiera materiały dydaktyczne w formie Jupyter Notebook, które kro
 miniproject/
 ├── metric-based.ipynb      # Notebook z wprowadzeniem i metodami metric-based
 ├── meta-learning.ipynb     # Notebook z meta-learning
-├── requirements.txt     # Zależności Python (pip)
-├── environment.yml      # Środowisko Conda
-├── README.md           # Ten plik
-└── Images/               # Folder ze zdjęciami wykorzysywanymi w notebookach
+├── requirements.txt        # Zależności Python (pip)
+├── environment.yml         # Środowisko Conda
+├── README.md               # Ten plik
+└── Images/                 # Folder ze zdjęciami wykorzysywanymi w notebookach
 ```
 
 ## 🚀 Instalacja
