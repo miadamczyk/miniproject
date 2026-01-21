@@ -2,7 +2,7 @@
 
 Interaktywny notebook edukacyjny wprowadzający do technik Few-Shot Learning.
 
-## 📋 Opis projektu
+## Opis projektu
 
 Ten projekt zawiera materiały dydaktyczne w formie Jupyter Notebook, które krok po kroku wprowadzają w:
 
@@ -10,7 +10,7 @@ Ten projekt zawiera materiały dydaktyczne w formie Jupyter Notebook, które kro
 2. **Metric-Based Methods** - Prototypical Networks, Matching Networks, Siamese Networks
 3. **Meta-Learning** - MAML (Model-Agnostic Meta-Learning)
 
-## 🗂️ Struktura projektu
+## Struktura projektu
 
 ```
 miniproject/
@@ -22,7 +22,7 @@ miniproject/
 └── Images/                 # Folder ze zdjęciami wykorzysywanymi w notebookach
 ```
 
-## 🚀 Instalacja
+## Instalacja
 
 ### Opcja 1: Conda (zalecane)
 
@@ -40,13 +40,17 @@ source venv/bin/activate  # Linux/Mac
 pip install -r requirements.txt
 ```
 
-## 💻 Uruchomienie
+## Uruchomienie
 
 ```bash
-jupyter notebook notebook1.ipynb
+jupyter notebook metric-based.ipynb
 ```
 
-## 📚 Zawartość notebooków
+```bash
+jupyter notebook meta-learning.ipynb
+```
+
+## Zawartość notebooków
 
 ### Sekcja 1: Few-Shot Learning - Wprowadzenie
 - Czym jest Few-Shot Learning?
@@ -72,7 +76,7 @@ jupyter notebook notebook1.ipynb
 - **Ćwiczenie 2:** Implementacja Inner-Loop Adaptation (MAML)
 - **Zadanie opcjonalne:** Porównanie metod
 
-## 🛠️ Wymagania
+## Wymagania
 
 - Python >= 3.10
 - PyTorch >= 2.0.0
@@ -84,13 +88,15 @@ jupyter notebook notebook1.ipynb
 - ipykernel >= 6.0.0
 
 
-## 📖 Bibliografia
+## Bibliografia
 
-- [Prototypical Networks for Few-shot Learning](https://arxiv.org/abs/1703.05175) (Snell et al., 2017)
-- [Matching Networks for One Shot Learning](https://arxiv.org/abs/1606.04080) (Vinyals et al., 2016)
-- [Exploring Simple Siamese Representation Learning](https://arxiv.org/abs/2011.10566) (VXinlei Chen, Kaiming He, 2017)
-- [Model-Agnostic Meta-Learning (MAML)](https://arxiv.org/abs/1703.03400) (Finn et al., 2017)
+- [IBM: What is few-shot learning?, "Few-Shot Learning,"](https://www.ibm.com/think/topics/few-shot-learning?.com) (dostęp 21.01.2026)
+- [Datacamp: What is Few-Shot Learning? Unlocking Insights with Limited Data](https://www.datacamp.com/blog/what-is-few-shot-learning?.com) (dostęp 21.01.2026)
+- [Jaimlr: Few-Shot Learning Strategies](https://jaimlr.github.io/Journal-of-Artificial-Intelligence-Machine-Learning-Research/few-shot-learning-strategies-by-loveleen-narang.html?.com) (dostęp 21.01.2026)
+- [Atoms: Few-Shot Learning: Foundational Principles, Methodologies, Applications, and Future Directions](https://atoms.dev/insights/few-shot-learning-foundational-principles-methodologies-applications-and-future-directions/125229aa85474e198eda6582b8847abc) (dostęp 21.01.2026)
+- [Matching Networks for One Shot Learning](https://arxiv.org/abs/1606.04080) (dostęp 21.01.2026)
+- [Siamese Neural Networks for One-shot Image Recognition](https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf) (dostęp 21.01.2026)
 
-## 👥 Autorzy
+## Autorzy
 
 Miłosz Adamczyk, Piotr Bednarski
