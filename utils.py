@@ -1,3 +1,6 @@
+import torch
+
+
 def few_shot_comparison(baseline_name: str, method_name: str,
                         pre_acc: float, post_acc: float,
                         n_way: int, k_shot: int, n_query: int):
@@ -16,51 +19,66 @@ def few_shot_comparison(baseline_name: str, method_name: str,
 def plot_tsne(ax, preds, title, n_way, support_2d, query_2d, support_y, query_y, show_prototypes=False, prototypes_2d=None):
     colors = ['r', 'g', 'b', 'c', 'm', 'y', 'k', 'orange', 'purple', 'brown'][:n_way]
 
+    if isinstance(support_2d, torch.Tensor):
+        support_2d = support_2d.cpu().numpy()
+    if isinstance(query_2d, torch.Tensor):
+        query_2d = query_2d.cpu().numpy()
+    if isinstance(support_y, torch.Tensor):
+        support_y = support_y.cpu().numpy()
+    if isinstance(query_y, torch.Tensor):
+        query_y = query_y.cpu().numpy()
+    if isinstance(preds, torch.Tensor):
+        preds = preds.cpu().numpy()
+
+
     # Rysowanie punktów zbioru pomocniczego (support set)
-    for c in range(n_way):
+    for class_label in range(n_way):
         ax.scatter(
-            support_2d[support_y == c, 0],
-            support_2d[support_y == c, 1],
-            color=colors[c],
+            support_2d[support_y == class_label, 0],
+            support_2d[support_y == class_label, 1],
+            color=colors[class_label],
             s=120,
-            label=f"Support {c}"
-        )
+            label=f"Support {class_label}"
+        )               
 
     # Rysowanie punktów zapytań (query set)
-    for i in range(len(query_2d)):
-        cls = preds[i]
-        correct = preds[i] == query_y[i].item()
-        if correct:
-            ax.scatter(
-                query_2d[i, 0],
-                query_2d[i, 1],
-                marker='x',
-                color=colors[preds[i]],
-                s=120
-            )
-        else:
-            ax.scatter(
-                query_2d[i, 0],
-                query_2d[i, 1],
-                marker='o',
-                facecolors='none',
-                edgecolors=colors[cls],
-                s=150,
-                linewidths=2
-            )
+    for class_idx in range(n_way):
+        # dobrze sklasyfikowane punkty danej klasy
+        correct_mask = (preds == class_idx) & (query_y == class_idx)
+        ax.scatter(
+            query_2d[correct_mask, 0],
+            query_2d[correct_mask, 1],
+            marker='x',
+            color=colors[class_idx],
+            s=120,
+            label=f"Query {class_idx} dobrze sklasyfikowane"  # label dla legendy
+        )
+    
+        # źle sklasyfikowane punkty danej klasy
+        incorrect_mask = (preds == class_idx) & (query_y != class_idx)
+        ax.scatter(
+            query_2d[incorrect_mask, 0],
+            query_2d[incorrect_mask, 1],
+            marker='o',
+            facecolors='none',
+            edgecolors=colors[class_idx],
+            s=150,
+            linewidths=2,
+            label=f"Query {class_idx} źle sklasyfikowane"  # label dla legendy
+        )
 
     # Rysowanie prototypów 
     if show_prototypes and prototypes_2d is not None:
-        for c in range(n_way):
+        for class_label in range(n_way):
             ax.scatter(
-                prototypes_2d[c, 0],
-                prototypes_2d[c, 1],
-                color=colors[c],
+                prototypes_2d[class_label, 0],
+                prototypes_2d[class_label, 1],
+                color=colors[class_label],
                 marker='*',
                 s=350,
                 edgecolor='k',
                 linewidth=1.5,
-                label=f"Prototyp {c}"
+                label=f"Prototyp {class_label}"
             )
 
     # Dodajemy opisy osi
@@ -69,3 +87,4 @@ def plot_tsne(ax, preds, title, n_way, support_2d, query_2d, support_y, query_y,
     
     ax.set_title(title)
     ax.grid(True)
+    ax.legend()  
