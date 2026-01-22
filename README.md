@@ -13,8 +13,8 @@ Ten projekt to zestaw materiałów dydaktycznych w formie **Jupyter Notebook**, 
 
 ```
 miniproject/
-├── metric-based.ipynb      # Notebook z wprowadzeniem i metodami metric-based
-├── meta-learning.ipynb     # Notebook z meta-learning
+├── 1_few-shot&metric-based.ipynb      # Notebook z wprowadzeniem i metodami metric-based
+├── 2_meta-learning.ipynb     # Notebook z meta-learning
 ├── requirements.txt        # Zależności Python (pip)
 ├── environment.yml         # Środowisko Conda
 ├── README.md               # Ten plik
@@ -64,11 +64,12 @@ jupyter notebook meta-learning.ipynb
 - Przykład na CIFAR-10 z pretrenowanym ResNet-18
 - Wizualizacje t-SNE i prównanie z baseline - Nearest Neighbor
 
-### Meta-Learning i MAML (Model-Agnostic Meta-Learning)
-- Czym jest meta-learning?
-- Inner loop vs Outer loop
-- Implementacja MAML od podstaw
-- Porównanie z metodami metric-based
+### Meta-Learning (2_meta-learning.ipynb)
+- Czym jest meta-learning? Intuicja i podstawowe pojęcia
+- MAML (Model-Agnostic Meta-Learning) - teoria i implementacja
+- Warianty: FOMAML, Reptile, Meta-SGD
+- Wizualizacje tasków i adaptacji
+- Porównanie wszystkich metod meta-learningu
 
 ### Ćwiczenia
 - **Ćwiczenie 1 (obowiązkowe):** Odpowiedz na pytanie dotyczące wizualizacji TSNE
